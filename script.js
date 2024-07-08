@@ -44,4 +44,12 @@ const factorial = function (num1) {
   console.log(factorial1);
   return factorial1;
 };
-//bubbly button
+
+function appendNumber() {
+  let numberToBeApended = document.getElementsByClassName("calcs-button");
+  let formedEquation = document.createElement("div");
+  let newEquation = formedEquation.innerText();
+  formedEquation.append(document.createElement("div"));
+  console.log(numberToBeApended, formedEquation, "logged");
+  //numberToBeApended.innerHTML
+}
