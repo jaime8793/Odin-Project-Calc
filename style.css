@@ -1,34 +1,72 @@
-/* iPhone 11 Pro / X - 2 */
+* {
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: blue;
+}
+
 body {
   background: #109dff;
   margin: 0;
   padding: 0;
   border: 0;
 }
+h1 {
+  font-family: "Tisa Sans", sans-serif;
+  font-weight: 600;
+  color: White;
+  text-align: center;
+}
+
+.calculate-container {
+  height: 25%;
+  margin: 16px 24px;
+
+  //font-family: "Tisa Sans", sans-serif;
+}
+.equation-contanier {
+  height: 50%;
+  //border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  //font-family: 'Tisa Sans', sans-serif;
+}
+.answer-container {
+  height: 50%;
+  //border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  color: purple;
+  font-size: 34px;
+}
 
 .calculator-container {
-  display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   width: 375px;
   height: 700px;
-  background: linear-gradient(
-    167.27deg,
-    #f7f8fb -5.94%,
-    rgba(247, 248, 251, 0.19) 103.62%
-  );
+  background: #f7f8fb;
   backdrop-filter: blur(51px);
   border-radius: 24px;
   margin: auto;
 }
 
+.calcButtons-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 75%;
+  //border: 1px solid black;
+}
+
 .calc-button {
   display: flex;
-
   justify-content: center;
   align-items: center;
-  padding: 6px 4px;
-  gap: 10px;
+  margin: 15px;
   width: 62px;
   height: 60px;
   background: linear-gradient(
@@ -37,29 +75,40 @@ body {
     rgba(255, 255, 255, 0.4) 114.23%
   );
   backdrop-filter: blur(6px);
-  border-radius: 16px;
+  border-radius: 18px;
+  border: none; /* Removes any border */
+  //box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
-/* Frame 11 
+#operands-buttons {
+  background: #ade2ff;
+  backdrop-filter: blur(51px);
+  background-blend-mode: overlay;
+}
 
-box-sizing: border-box;
+/* iPhone 11 Pro / X - 3 */
+#equals-button {
+  border-radius: 12px;
+  background-blend-mode: overlay;
+  background: #19acff;
+  box-shadow: -9px 13px 23px rgba(0, 163, 255, 0.65),
+    inset -3px 4px 11px #b0dfff;
+  //height: 160px;
+}
+@font-face {
+  font-family: "Tisa Sans";
+  src: url("./fonts/Tisa Sans Pro Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-/* Auto layout 
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 6px 4px;
-gap: 10px;
+@font-face {
+  font-family: "Tisa Sans";
+  src: url("path/to/fonts/TisaSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
 
-position: absolute;
-width: 62px;
-height: 60px;
-left: 116px;
-top: 470px;
 
-background: linear-gradient(129.7deg, rgba(255, 255, 255, 0.6) -9.69%, rgba(255, 255, 255, 0.4) 114.23%);
-backdrop-filter: blur(6px);
-/* Note: backdrop-filter has minimal browser support 
-border-radius: 16px;
-*/
