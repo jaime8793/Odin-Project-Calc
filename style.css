@@ -25,14 +25,12 @@ h1 {
 
   //font-family: "Tisa Sans", sans-serif;
 }
-.equation-contanier {
+.equation-container {
   height: 50%;
-  //border: 1px solid black;
   border-radius: 10px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  //font-family: 'Tisa Sans', sans-serif;
 }
 .answer-container {
   height: 50%;
