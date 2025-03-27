@@ -13,14 +13,31 @@ try {
   console.log(`MongoDB refused to connect ${error}`);
 }
 
+const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
+
+const NickNameSchema = new Schema({
+  author: ObjectId,
+  nickName: String,
+});
+
+const NickName = mongoose.model("NickName", NickNameSchema);
 
 
 
 app.get("/", (req, res) => {
   res.sendStatus(200);
 });
-app.get("/nicknames", (req, res) => {
-  res.send(["Ammo", "Dibo", "Fujo"]);
+app.get("/nicknames", async (req, res) => {
+  let allNickNames;
+  try {
+    const newNickName = new NickName({ nickName: "Ammo" });
+    await newNickName.save()
+    allNickNames = await NickName.find()
+  } catch (error) {
+    console.log(`Could not add new nickname ${error}}`)
+  }
+  res.send(allNickNames);
 });
 
 app.listen(port, () => {
