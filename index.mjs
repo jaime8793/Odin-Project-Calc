@@ -50,15 +50,16 @@ app.get("/nicknames", async (req, res) => {
 });
 // added new route
 app.post("/nicknames", async (req, res) => {
+  // new var for allNickNames
   let allNickNames;
   try {
     console.log(req.body)
     const newNickName = new NickName({ nickName: req.body.NickName });
     await newNickName.save()
-    
+
   } catch (error) {
     console.log(`Could not add new nickname ${error}}`)
-    
+
   }
   res.sendStatus(201);
 });
