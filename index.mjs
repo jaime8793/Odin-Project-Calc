@@ -1,10 +1,18 @@
 import express from "express";
 import "dotenv/config";
 import mongoose from "mongoose";
+import cors from "cors";
+import bodyParser from "body-parser";
+
+
 
 const app = express();
 const port = process.env.port;
 const mongoDBURI = process.env.mongoDBURI;
+
+// middleware
+app.use(cors());
+app.use(bodyParser.json());
 // connect to mongo db
 try {
   await mongoose.connect(mongoDBURI);
@@ -34,12 +42,26 @@ app.get("/nicknames", async (req, res) => {
   let allNickNames;
   try {
     const newNickName = new NickName({ nickName: "Ammo" });
-    await newNickName.save()
+   // await newNickName.save()
     allNickNames = await NickName.find()
   } catch (error) {
-    console.log(`Could not add new nickname ${error}}`)
+    console.log(`Could get nickname ${error}}`)
   }
   res.send(allNickNames);
+});
+
+app.post("/nicknames", async (req, res) => {
+  let allNickNames;
+  try {
+    console.log(req.body)
+    const newNickName = new NickName({ nickName: req.body.NickName });
+    await newNickName.save()
+    //allNickNames = await NickName.find()
+  } catch (error) {
+    console.log(`Could not add new nickname ${error}}`)
+    //res.sendStatus(401);
+  }
+  res.sendStatus(201);
 });
 
 app.listen(port, () => {
