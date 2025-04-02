@@ -42,24 +42,23 @@ app.get("/nicknames", async (req, res) => {
   let allNickNames;
   try {
     const newNickName = new NickName({ nickName: "Ammo" });
-   // await newNickName.save()
     allNickNames = await NickName.find()
   } catch (error) {
     console.log(`Could get nickname ${error}}`)
   }
   res.send(allNickNames);
 });
-
+// added new route
 app.post("/nicknames", async (req, res) => {
   let allNickNames;
   try {
     console.log(req.body)
     const newNickName = new NickName({ nickName: req.body.NickName });
     await newNickName.save()
-    //allNickNames = await NickName.find()
+    
   } catch (error) {
     console.log(`Could not add new nickname ${error}}`)
-    //res.sendStatus(401);
+    
   }
   res.sendStatus(201);
 });
